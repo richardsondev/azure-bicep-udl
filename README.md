@@ -2,21 +2,21 @@
 
 This repository provides a User Defined Language (UDL) definition for Notepad++ to enable syntax highlighting for Azure Bicep files (.bicep).
 
-## What is Bicep?
+## Bicep Language
 
 Bicep is a Domain Specific Language (DSL) for deploying and managing Azure resources. It provides declarative syntax and simplifies the authoring experience compared to raw ARM templates.
 
 More information is available here: [What is Bicep?](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
-## Why use this UDL?
+## Background
 
 While VS Code with the [official Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) offers the best Bicep development experience, this UDL allows you to have basic syntax highlighting in Notepad++ if you prefer a lightweight editor.
 
 ## Installation and Usage
 
 1.  **Download the UDL file for your theme:** You can either clone this repository or directly save the XML file directly.
-    * Light mode: [`Bicep-UDL.xml`](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL.xml)
-    * Dark mode: [`Bicep-UDL_dark.xml`](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL_dark.xml) (thanks to [@IAmCorbin](https://github.com/IAmCorbin))
+    * Light theme: [`Bicep-UDL.xml`](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL.xml)
+    * Dark theme: [`Bicep-UDL_dark.xml`](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL_dark.xml) (thanks to [@IAmCorbin](https://github.com/IAmCorbin))
 1.  **Open Notepad++:** Launch the application.
 1.  **Open User Defined Language Dialog:** Go to *Language* \> *Define your language...*.
 1.  **Import the UDL:** Click the *Import...* button in the "User Defined Language" dialog.
@@ -24,9 +24,12 @@ While VS Code with the [official Bicep extension](https://marketplace.visualstud
 1.  **Close the Dialog:** Close the "User Defined Language" dialog.
 1.  **Open a Bicep file:** Open a `.bicep` file. The syntax highlighting should now be applied.
 
-## Example Syntax Highlighting
+## Screenshots
 
-[<img src="./images/example.png" alt="Example Bicep with Syntax Highlighting in Notepad++" width="600" />](./images/example.png)
+| Light Theme | Dark Theme |
+|-------------|------------|
+| [<img src="./images/example.png" alt="Example Bicep with Syntax Highlighting in Notepad++ with Light theme" width="400" />](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/images/example.png) | [<img src="./images/example_dark.png" alt="Example Bicep with Syntax Highlighting in Notepad++ with Dark theme" width="400" />](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/images/example_dark.png) |
+| [Bicep-UDL.xml](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL.xml) | [Bicep-UDL_dark.xml](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL_dark.xml) |
 
 ## Features
 
