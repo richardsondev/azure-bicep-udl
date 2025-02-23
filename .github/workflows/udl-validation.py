@@ -30,9 +30,9 @@ def compare_elements(elem1, elem2, file_ref, file_compare):
         print(f"::error file={file_compare},line={elem2.sourceline}::Tag mismatch: expected <{elem1.tag}> but found <{elem2.tag}>")
         return False
 
-    # Copy attributes for comparison.
-    attrib1 = elem1.attrib.copy()
-    attrib2 = elem2.attrib.copy()
+    # Create dictionary copies of attributes.
+    attrib1 = dict(elem1.attrib)
+    attrib2 = dict(elem2.attrib)
 
     # For UserLang elements, allow the "name" attribute to mismatch.
     if elem1.tag == "UserLang":
