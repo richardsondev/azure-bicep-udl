@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <NotepadPlus>
-    <UserLang name="Bicep" ext="bicep" udlVersion="2.1">
+    <UserLang name="Bicep (Dark Theme)" ext="bicep" udlVersion="2.1">
         <Settings>
-            <Global caseIgnored="no" allowFoldOfComments="1" foldCompact="1" forcePureLC="0" decimalSeparator="." />
-            <Prefix Keywords1="yes" Keywords2="yes" Keywords3="yes" Keywords4="yes" Keywords5="yes" Keywords6="yes" Keywords7="yes" Keywords8="yes"/>
+            <Global caseIgnored="no" allowFoldOfComments="yes" foldCompact="yes" forcePureLC="0" decimalSeparator="0" />
+            <Prefix Keywords1="no" Keywords2="no" Keywords3="no" Keywords4="no" Keywords6="yes" Keywords7="yes" Keywords8="no" />
         </Settings>
         <KeywordLists>
-            <Keywords name="Comments">// /* */</Keywords>
+            <Keywords name="Comments">00// 01 02 03/* 04*/</Keywords>
             <Keywords name="Numbers, prefix1">+ -</Keywords>
             <Keywords name="Numbers, prefix2"></Keywords>
             <Keywords name="Numbers, extras1">.</Keywords>
@@ -14,73 +14,57 @@
             <Keywords name="Numbers, suffix1">f F d D</Keywords>
             <Keywords name="Numbers, suffix2"></Keywords>
             <Keywords name="Numbers, range"></Keywords>
-            <Keywords name="Operators1">= + - * / % &amp; | ^ ! ~ &lt; &gt; &lt;= &gt;= == != ?? : ?</Keywords>
+            <Keywords name="Operators1">, = + - * / % &amp; | ^ ! ~ &lt; &gt; &lt;= &gt;= == != ?? : ?</Keywords>
             <Keywords name="Operators2"></Keywords>
-            <Keywords name="Folders in code1, open">{ [ (</Keywords>
+            <Keywords name="Folders in code1, open"></Keywords>
             <Keywords name="Folders in code1, middle"></Keywords>
-            <Keywords name="Folders in code1, close">} ] )</Keywords>
+            <Keywords name="Folders in code1, close"></Keywords>
             <Keywords name="Folders in code2, open"></Keywords>
             <Keywords name="Folders in code2, middle"></Keywords>
             <Keywords name="Folders in code2, close"></Keywords>
             <Keywords name="Folders in comment, open"></Keywords>
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
-            
             <!-- Bicep Keywords -->
-            <Keywords name="Keywords1">metadata targetScope resource module param var output for in if existing import as type with using extends func assert extension</Keywords>
+            <Keywords name="Keywords1">param var output in targetScope resource module output</Keywords>
             <!-- Named Literals -->
-            <Keywords name="Keywords2">true false null</Keywords>
+            <Keywords name="Keywords2">true false null any</Keywords>
             <!-- Logical Operators -->
             <Keywords name="Keywords3">and or not</Keywords>
-            <Keywords name="Keywords4">any</Keywords>
-            <Keywords name="Keywords5">#disable-next-line</Keywords>
-            <Keywords name="Keywords6"></Keywords>
-            <Keywords name="Keywords7"></Keywords>
+            <!-- Built-in Functions -->
+            <Keywords name="Keywords4">for if existing import as type with using extends func assert extension concat format replace split uniqueString resourceId reference json int bool string array object union intersection length substring range toLower base64</Keywords>
+            <!-- Special directive -->
+            <Keywords name="Keywords6">#disable-next-line adminusername-should-not-be-literal artifacts-parameters decompiler-cleanup explicit-values-for-loc-params max-asserts max-outputs max-params max-resources max-variables nested-deployment-template-scoping no-conflicting-metadata no-deployments-resources no-hardcoded-env-urls no-hardcoded-location no-loc-expr-outside-params no-unnecessary-dependson no-unused-existing-resources no-unused-params no-unused-vars outputs-should-not-contain-secrets prefer-interpolation prefer-unquoted-property-names protect-commandtoexecute-secrets secure-parameter-default secure-params-in-nested-deploy secure-secrets-in-params simplify-interpolation simplify-json-null use-parent-property use-recent-api-versions use-recent-module-versions use-resource-id-functions use-resource-symbol-reference use-safe-access use-secure-value-for-secure-inputs use-stable-resource-identifiers use-stable-vm-image what-if-short-circuiting</Keywords>
+            <!-- Additional keywords -->
+            <Keywords name="Keywords7">resourceGroup subscription tenant deployment managementGroup environment</Keywords>
             <Keywords name="Keywords8"></Keywords>
+            <!-- Delimiters -->
+            <Keywords name="Delimiters">00&quot; 01 02&quot; 03&apos; 04 05&apos; 06${ 07 08} 09@ 10 11) 12{ 13 14} 15[ 16 17] 18( 19 20) 21 22 23</Keywords>
         </KeywordLists>
         <Styles>
-            <WordsStyle name="DEFAULT" styleID="0" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="COMMENTS" styleID="1" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0" />
-            <WordsStyle name="LINE COMMENTS" styleID="2" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0" />
-            <WordsStyle name="NUMBERS" styleID="4" fgColor="FFFFFF" bgColor="FF8000" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS1" styleID="5" fgColor="FFFFFF" bgColor="0000FF" fontStyle="1" nesting="0" />
-            <WordsStyle name="KEYWORDS2" styleID="6" fgColor="FFFFFF" bgColor="800080" fontStyle="1" nesting="0" />
-            <!-- Make Keywords3 stand out (red and bold): -->
-            <WordsStyle name="KEYWORDS3" styleID="7" fgColor="FFFFFF" bgColor="FF0000" fontStyle="1" nesting="0" />
-            <!-- Keywords4 (e.g., 'any') normal style -->
-            <WordsStyle name="KEYWORDS4" styleID="8" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS5" styleID="9" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS6" styleID="12" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS7" styleID="13" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="KEYWORDS8" styleID="14" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="OPERATORS" styleID="10" fgColor="FF0000" bgColor="000000" fontStyle="0" nesting="0" />
-            <WordsStyle name="FOLDER IN CODE1" styleID="11" fgColor="FFFFFF" bgColor="800000" fontStyle="0" nesting="0" />
-            <WordsStyle name="DELIMITERS1" styleID="16" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0" />
+            <WordsStyle name="DEFAULT" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
+            <WordsStyle name="COMMENTS" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0" />
+            <WordsStyle name="LINE COMMENTS" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0" />
+            <WordsStyle name="NUMBERS" fgColor="FFFFFF" bgColor="FF8000" fontStyle="0" nesting="0" />
+            <WordsStyle name="KEYWORDS1" fgColor="FFFFFF" bgColor="0000FF" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS2" fgColor="FFFFFF" bgColor="800080" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS3" fgColor="FFFFFF" bgColor="FF0000" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS4" fgColor="FFFFFF" bgColor="000000" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS6" fgColor="FFFFFF" bgColor="000000" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS7" fgColor="FFFFFF" bgColor="000000" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS8" fgColor="FFFFFF" bgColor="000000" fontStyle="1" nesting="0" />
+            <WordsStyle name="OPERATORS" fgColor="FF0000" bgColor="000000" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE1" fgColor="FFFFFF" bgColor="800000" fontStyle="0" nesting="0" />
+            <WordsStyle name="DELIMITERS1" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE2" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
+            <WordsStyle name="FOLDER IN COMMENT" fgColor="00BFFF" bgColor="000000" fontStyle="0" nesting="117702655" />
+            <WordsStyle name="DELIMITERS2" fgColor="00BFFF" bgColor="000000" fontStyle="0" nesting="4" />
+            <WordsStyle name="DELIMITERS3" fgColor="00BFFF" bgColor="000000" fontStyle="1" nesting="0" />
+            <WordsStyle name="DELIMITERS4" fgColor="DAA520" bgColor="000000" fontStyle="1" nesting="2" />
+            <WordsStyle name="DELIMITERS5" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="117702655" />
+            <WordsStyle name="DELIMITERS6" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="117702655" />
+            <WordsStyle name="DELIMITERS7" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="117702655" />
+            <WordsStyle name="DELIMITERS8" fgColor="FFFFFF" bgColor="000000" fontStyle="0" nesting="0" />
         </Styles>
-
-        <Comment>
-            <WordsStyle name="COMMENT" fgColor="FFFFFF" bgColor="008000" fontStyle="0"/>
-            <WordsStyle name="COMMENT LINE" fgColor="FFFFFF" bgColor="008000" fontStyle="0"/>
-            <WordsStyle name="COMMENT DOC" fgColor="FFFFFF" bgColor="008000" fontStyle="0"/>
-        </Comment>
-
-        <CommentStrings>
-            <CommentString type="LINE" value="//" />
-            <CommentString type="BLOCK" value="/*" value2="*/" />
-        </CommentStrings>
-
-        <Delimiter open="'" close="'" escape="" lineFold="no">
-            <WordsStyle name="DELIMITERS1" fgColor="FFFFFF" bgColor="008000" fontStyle="0" nesting="0"/>
-        </Delimiter>
-
-        <FolderMaps>
-            <FolderMap styleID="FOLDER IN CODE1" open="{" close="}"/>
-            <FolderMap styleID="FOLDER IN CODE1" open="[" close="]"/>
-            <FolderMap styleID="FOLDER IN CODE1" open="(" close=")"/>
-        </FolderMaps>
-
-        <Numbers>
-            <WordsStyle name="NUMBERS" fgColor="FFFFFF" bgColor="FF8000" fontStyle="0"/>
-        </Numbers>
     </UserLang>
 </NotepadPlus>
