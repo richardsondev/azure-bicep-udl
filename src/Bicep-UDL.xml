@@ -10,7 +10,7 @@
             <Keywords name="Numbers, prefix1">+ -</Keywords>
             <Keywords name="Numbers, prefix2"></Keywords>
             <Keywords name="Numbers, extras1">.</Keywords>
-            <Keywords name="Numbers, extras2">e E</Keywords>
+            <Keywords name="Numbers, extras2">e E a</Keywords>
             <Keywords name="Numbers, suffix1">f F d D</Keywords>
             <Keywords name="Numbers, suffix2"></Keywords>
             <Keywords name="Numbers, range"></Keywords>
