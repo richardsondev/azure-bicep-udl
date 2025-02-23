@@ -4,6 +4,8 @@ import sys
 from lxml import etree
 
 # Allowed attributes differences for WordsStyle elements.
+# For elements other than WordsStyle and UserLang, all attributes must match exactly.
+# For UserLang elements, the "name" attribute is allowed to mismatch.
 ALLOWED_ATTRIBUTES = ['fgColor', 'bgColor', 'colorStyle', 'fontStyle']
 
 def normalize(element):
@@ -28,12 +30,21 @@ def compare_elements(elem1, elem2, file_ref, file_compare):
         print(f"::error file={file_compare},line={elem2.sourceline}::Tag mismatch: expected <{elem1.tag}> but found <{elem2.tag}>")
         return False
 
-    # Compare attributes (after normalizing allowed WordsStyle differences).
-    if elem1.attrib != elem2.attrib:
+    # Copy attributes for comparison.
+    attrib1 = elem1.attrib.copy()
+    attrib2 = elem2.attrib.copy()
+
+    # For UserLang elements, allow the "name" attribute to mismatch.
+    if elem1.tag == "UserLang":
+        attrib1.pop("name", None)
+        attrib2.pop("name", None)
+
+    # Compare attributes (after allowed modifications).
+    if attrib1 != attrib2:
         print(f"::error file={file_compare},line={elem2.sourceline}::Attributes mismatch in <{elem1.tag}>: expected {elem1.attrib} but found {elem2.attrib}")
         return False
 
-    # Compare text (ignoring surrounding whitespace).
+    # Compare text content (ignoring surrounding whitespace).
     if (elem1.text or "").strip() != (elem2.text or "").strip():
         print(f"::error file={file_compare},line={elem2.sourceline}::Text mismatch in <{elem1.tag}>: expected '{elem1.text}' but found '{elem2.text}'")
         return False
@@ -81,7 +92,7 @@ def main():
     if not valid:
         sys.exit(1)
     else:
-        print("All XML files are valid and consistent (aside from allowed WordsStyle differences).")
+        print("All XML files are valid and consistent (aside from allowed differences in WordsStyle and UserLang name).")
 
 if __name__ == "__main__":
     main()
