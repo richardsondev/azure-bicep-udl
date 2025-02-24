@@ -66,5 +66,104 @@
             <WordsStyle name="DELIMITERS7" fgColor="000000" bgColor="FFFFFF" colorStyle="1" fontStyle="0" nesting="117702655" />
             <WordsStyle name="DELIMITERS8" fgColor="000000" bgColor="FFFFFF" colorStyle="1" fontStyle="0" nesting="0" />
         </Styles>
+        <AutoComplete>
+            <KeyWord name="targetScope" />
+            <KeyWord name="resource" />
+            <KeyWord name="module" />
+            <KeyWord name="var" />
+            <KeyWord name="param" />
+            <KeyWord name="output" />
+            <KeyWord name="for" />
+            <KeyWord name="in" />
+            <KeyWord name="if" />
+            <KeyWord name="existing" />
+            <KeyWord name="true" />
+            <KeyWord name="false" />
+            <KeyWord name="null" />
+        
+            <Function name="resourceGroup" />
+            <Function name="subscription" />
+            <Function name="tenant" />
+            <Function name="managementGroup" />
+            <Function name="az" />
+            <Function name="sys" />
+            <Function name="any" />
+            <Function name="concat" />
+            <Function name="contains" />
+            <Function name="empty" />
+            <Function name="indexOf" />
+            <Function name="first" />
+            <Function name="flatten" />
+            <Function name="intersection" />
+            <Function name="last" />
+            <Function name="lastIndexOf" />
+            <Function name="length" />
+            <Function name="min" />
+            <Function name="max" />
+            <Function name="range" />
+            <Function name="skip" />
+            <Function name="take" />
+            <Function name="union" />
+            <Function name="parseCidr" />
+            <Function name="cidrSubnet" />
+            <Function name="cidrHost" />
+            <Function name="dateTimeAdd" />
+            <Function name="dateTimeFromEpoch" />
+            <Function name="dateTimeToEpoch" />
+            <Function name="utcNow" />
+            <Function name="deployer" />
+            <Function name="deployment" />
+            <Function name="environment" />
+            <Function name="loadFileAsBase64" />
+            <Function name="loadJsonContent" />
+            <Function name="loadTextContent" />
+            <Function name="loadYamlContent" />
+            <Function name="filter" />
+            <Function name="map" />
+            <Function name="sort" />
+            <Function name="reduce" />
+            <Function name="toObject" />
+            <Function name="groupBy" />
+            <Function name="mapValue" />
+            <Function name="bool" />
+            <Function name="int" />
+            <Function name="items" />
+            <Function name="json" />
+            <Function name="objectKeys" />
+            <Function name="shallowMerge" />
+            <Function name="getSecret" />
+            <Function name="readEnvironmentVariable" />
+            <Function name="extensionResourceId" />
+            <Function name="list" />
+            <Function name="listAccountSas" />
+            <Function name="listKeys" />
+            <Function name="listSecrets" />
+            <Function name="managementGroupResourceId" />
+            <Function name="pickZones" />
+            <Function name="providers" />
+            <Function name="reference" />
+            <Function name="resourceId" />
+            <Function name="subscriptionResourceId" />
+            <Function name="tenantResourceId" />
+            <Function name="uniqueString" />
+            <Function name="substring" />
+
+            <KeyWord name="Microsoft.Storage/storageAccounts" />
+            <KeyWord name="sku" />
+            <KeyWord name="kind" />
+            <KeyWord name="accessTier" />
+            <KeyWord name="enableHttpsTrafficOnly" />
+            <KeyWord name="minimumTlsVersion" />
+            <KeyWord name="allowBlobPublicAccess" />
+            <KeyWord name="allowSharedKeyAccess" />
+        
+            <KeyWord name="Microsoft.Network/virtualNetworks" />
+            <KeyWord name="addressSpace" />
+            <KeyWord name="subnets" />
+            <KeyWord name="addressPrefixes" />
+        
+            <KeyWord name="Microsoft.Web/serverfarms" />
+            <KeyWord name="Microsoft.Insights/components" />
+        </AutoComplete>
     </UserLang>
 </NotepadPlus>
