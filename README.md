@@ -1,28 +1,20 @@
 # Azure Bicep User Defined Language for Notepad++
 
-This repository provides a User Defined Language (UDL) definition for Notepad++ to enable syntax highlighting for Azure Bicep files (.bicep).
+This repository contains a [User Defined Language (UDL)](https://npp-user-manual.org/docs/user-defined-language-system/) definition for [Notepad++](https://notepad-plus-plus.org) to enable syntax highlighting for Azure Bicep files (.bicep).
 
-## Bicep Language
+## About Bicep
 
-Bicep is a Domain Specific Language (DSL) for deploying and managing Azure resources. It provides declarative syntax and simplifies the authoring experience compared to raw ARM templates.
-
+Bicep is a language for deploying and managing Azure cloud resources. It provides declarative syntax and simplifies the authoring experience compared to raw ARM JSON templates.
 More information is available here: [What is Bicep?](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep)
 
-## Background
+## UDL Installation and Usage
 
-While VS Code with the [official Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) offers the best Bicep development experience, this UDL allows you to have basic syntax highlighting in Notepad++ if you prefer a lightweight editor.
-
-## Installation and Usage
-
-1.  **Download the UDL file for your theme:** You can either clone this repository or directly save the XML file directly.
-    * Light theme: [`Bicep-UDL.xml`](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL.xml)
-    * Dark theme: [`Bicep-UDL_dark.xml`](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL_dark.xml) (thanks to [@IAmCorbin](https://github.com/IAmCorbin))
-1.  **Open Notepad++:** Launch the application.
-1.  **Open User Defined Language Dialog:** Go to *Language* \> *Define your language...*.
-1.  **Import the UDL:** Click the *Import...* button in the "User Defined Language" dialog.
-1.  **Select the XML file:** Choose the downloaded XML file.
-1.  **Close the Dialog:** Close the "User Defined Language" dialog.
-1.  **Open a Bicep file:** Open a `.bicep` file. The syntax highlighting should now be applied.
+1. **Download the UDL file:**  
+   - [Light theme](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL.xml)  
+   - [Dark theme](https://raw.githubusercontent.com/richardsondev/azure-bicep-udl/main/src/Bicep-UDL_dark.xml) (credit [@IAmCorbin](https://github.com/IAmCorbin))
+2. **Open Notepad++** and go to *Language > Define your language...*
+3. **Import the UDL:** Click *Import...*, select the XML file, and close the dialog.
+4. **Open a Bicep file:** The syntax highlighting will now be applied.
 
 ## Screenshots
 
@@ -58,6 +50,9 @@ This UDL provides highlighting for:
 ## Contributing
 
 **Contributions are welcome!** If you find any issues or have improvements, please feel free to open a pull request or submit an issue.
+
+1. When modifying syntax parsing, validate your changes using the test file at `./testfiles/sample.bicep` and add any new syntax there as appropriate.
+1. Ensure that all versions of the UDL XML files remain synced (except for the UserLang Name and styling differences).
 
 ## License
 
