@@ -1,0 +1,93 @@
+name: Daily Auto Tag and Release
+
+on:
+  # Runs every day at midnight UTC
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  tag-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Fetch tags
+        run: git fetch --tags
+
+      - name: Determine last auto-tag
+        id: last_tag
+        run: |
+          # Look for tags matching the version pattern (e.g. 2025.02.23.45296)
+          LAST_TAG=$(git tag --list '????.??.??.*' --sort=-creatordate | head -n 1 || echo "")
+          echo "LAST_TAG=$LAST_TAG" >> $GITHUB_ENV
+          echo "::set-output name=tag::$LAST_TAG"
+          echo "Last tag found: $LAST_TAG"
+        shell: bash
+
+      - name: Check for changes in ./src
+        id: check_changes
+        run: |
+          if [ -n "${{ env.LAST_TAG }}" ]; then
+            CHANGED=$(git diff "${{ env.LAST_TAG }}" -- ./src)
+          else
+            # If no tag exists yet, compare last commit versus its parent
+            CHANGED=$(git diff HEAD~1 -- ./src)
+          fi
+          if [ -z "$CHANGED" ]; then
+            echo "No changes detected in ./src since the last tag. Exiting."
+            exit 0
+          else
+            echo "Changes detected in ./src."
+          fi
+        shell: bash
+
+      - name: Compute tag version (UTC)
+        id: compute_version
+        run: |
+          # Use UTC to compute the tag version
+          HOUR=$(TZ=UTC date +"%H")
+          MIN=$(TZ=UTC date +"%M")
+          SEC=$(TZ=UTC date +"%S")
+          tag_seconds=$((10#$HOUR * 3600 + 10#$MIN * 60 + 10#$SEC))
+          YEAR=$(TZ=UTC date +"%Y")
+          MONTH=$(TZ=UTC date +"%m")
+          DAY=$(TZ=UTC date +"%d")
+          VERSION="${YEAR}.${MONTH}.${DAY}.${tag_seconds}"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "::set-output name=version::$VERSION"
+          echo "Computed tag version: $VERSION"
+        shell: bash
+
+      - name: Get commit list for release description
+        id: commit_list
+        run: |
+          if [ -n "${{ env.LAST_TAG }}" ]; then
+            COMMITS=$(git log "${{ env.LAST_TAG }}"..HEAD --pretty=format:"- %s")
+          else
+            COMMITS=$(git log -1 --pretty=format:"- %s")
+          fi
+          echo "commits=$COMMITS" >> $GITHUB_ENV
+          echo "::set-output name=commits::$COMMITS"
+          echo "Commits since last tag:"
+          echo "$COMMITS"
+        shell: bash
+
+      - name: Create tag and push
+        run: |
+          git tag ${{ steps.compute_version.outputs.version }}
+          git push origin ${{ steps.compute_version.outputs.version }}
+
+      - name: Create Release with Assets
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.compute_version.outputs.version }}
+          name: "Release ${{ steps.compute_version.outputs.version }}"
+          body: |
+            Automatic release generated.
+
+            Commits included:
+            ${{ steps.commit_list.outputs.commits }}
+          # Attach all XML files in the ./src folder (supports glob patterns)
+          files: ./src/*.xml
